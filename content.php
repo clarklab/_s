@@ -20,7 +20,11 @@
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
-	<?php else : ?>
+	<?php elseif ('code' == get_post_type()) : // Wrap in pre if displaying snippets ?>
+    <pre name="code" class="php">
+    <?php echo get_the_content(); ?>
+    </pre>
+    <?php else : ?>
 	<div class="entry-content">
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>

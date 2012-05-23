@@ -307,10 +307,7 @@ textarea {
 
 /* Links */
 a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
+	color:#4FACB2;
 }
 a:hover,
 a:focus,

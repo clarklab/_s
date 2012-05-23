@@ -15,8 +15,14 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+    <?php if ('code' == get_post_type()) : // Wrap in pre if displaying snippets ?>
+    <pre name="code" class="php">
+    <?php echo get_the_content(); ?>
+    </pre>
+    <?php else : ?>
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
+        <?php endif; ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
