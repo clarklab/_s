@@ -3,17 +3,32 @@ Theme Name: _s
 Layout: Sidebar-Content
 */
 
+*{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
 .site-content {
 	float: right;
 	width: 100%;
+	padding-left:300px;
 }
+
+#masthead{
+	position:fixed;
+	top:20px;
+	z-index:3;
+	width: 300px;
+	padding:90px 30px 30px;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:2;
+	}
+
 #content {
 	margin: 0 auto;
 	max-width:840px;
 }
 #secondary { /* Sidebar 1 */
-	position:fixed;
-	width: 200px;
+		
 }
 #tertiary { /* Sidebar 2 */
 	clear: left;
@@ -21,4 +36,9 @@ Layout: Sidebar-Content
 .site-footer {
 	clear: both;
 	width: 100%;
+	padding-left:300px;
+}
+#secondary-footer {
+	margin: 0 auto;
+	max-width:840px;
 }

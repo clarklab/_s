@@ -57,6 +57,9 @@
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>
+        
+        <?php get_sidebar(); ?>
+        
 	</header><!-- #masthead .site-header -->
 
 	<div id="main">
