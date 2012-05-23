@@ -5,12 +5,11 @@ Layout: Sidebar-Content
 
 .site-content {
 	float: right;
-	margin: 0 0 0 -25%;
 	width: 100%;
 }
 #content {
-	margin: 0 0 0 25%;
-	max-width:940px;
+	margin: 0 auto;
+	max-width:840px;
 }
 #secondary { /* Sidebar 1 */
 	position:fixed;
