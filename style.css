@@ -46,9 +46,6 @@ html {
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
-body {
-	background: #fff;
-}
 article,
 aside,
 details,
@@ -100,7 +97,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family:"Open Sans";
 	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
@@ -554,3 +551,6 @@ object {
 #searchsubmit {
 	display: none;
 }
+
+.entry-title{font-family:"Prata"; font-size:48px; font-weight:400 !important;}
+.entry-title a{text-decoration:none; color:#000;}

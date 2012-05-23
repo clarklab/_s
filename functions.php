@@ -101,6 +101,10 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	global $post;
+	
+	wp_enqueue_style( 'font-prata', 'http://fonts.googleapis.com/css?family=Prata' );
+	
+	wp_enqueue_style( 'font-open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans' );
 
 	wp_enqueue_style( 'sidebar-content', get_template_directory_uri() . '/layouts/sidebar-content.css' );
 
