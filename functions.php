@@ -32,6 +32,12 @@ function _s_setup() {
 	require( get_template_directory() . '/inc/template-tags.php' );
 
 	/**
+	 * Custom post types for use in this theme
+	 */
+	
+	require( get_template_directory() . '/inc/post-types.php');
+
+	/**
 	 * Custom functions that act independently of the theme templates
 	 */
 	//require( get_template_directory() . '/inc/tweaks.php' );
@@ -78,6 +84,96 @@ function _s_setup() {
 }
 endif; // _s_setup
 add_action( 'after_setup_theme', '_s_setup' );
+
+/**
+* Add support for uploading PSDs (or anything added in this array)
+*/
+
+function addUploadMimes($mimes) {
+    $mimes = array_merge($mimes, array(
+        'psd' => 'application/photoshop'
+    ));
+
+    return $mimes;
+}
+add_filter('upload_mimes', 'addUploadMimes');
+
+/**
+* Function for listing attachments of a post
+*/
+
+function get_attachments() {
+	global $post;
+	$files = get_children( array('post_parent' => $post->ID, 'post_status' => 'inherit', 'post_type' => 'attachment', 'order' => 'ASC', 'orderby' => 'menu_order ID') );
+
+	$results = array();
+
+	if ($files) {
+		foreach ($files as $file) {
+			$path = wp_get_attachment_url($file->ID);
+			$path_parts = pathinfo($path);
+			$results[].= '<li><a class="'.$path_parts[extension].'" href="'.$path.'">'.$path_parts[basename].'</a></li>';
+		}
+	}
+	return $results;
+}
+
+/**
+* Shortcode for creating inline screenshot previews of a given URL
+*/
+
+add_shortcode('site', 'site_shortcode');  
+  
+function site_shortcode($atts){  
+
+extract( shortcode_atts( array(
+		'width' => '300',
+		'height' => '300',
+		'align' => 'none',
+		'title' => 'The Internet',
+		'url' => 'http://google.com'
+	), $atts ) ); 
+  
+  if ($url != ''){  
+  
+    $query_url =  'http://s.wordpress.com/mshots/v1/' . urlencode($url) . '?w=' . $width;  
+  
+    $image_tag = '<img class="ss_screenshot_img" alt="' . $url . '" width="' . $width . '" src="' . $query_url . '" />';  
+	$widthedge = ($width-8);
+	$heightedge = ($height-10);
+	echo '<div class="site align'.$align.'" style="width:'.$widthedge.'px; height:'.$heightedge.'px;"><a href="'.$url.'"><span class="title">'.$title.'</span>' . $image_tag . '</a></div>'; 
+  
+  }else{  
+  
+    echo 'Bad screenshot url!';  
+  
+  }  
+}
+
+/**
+* Shortcode for inserting code (from our CPT) into a post
+*/
+
+function include_code($atts) {
+  
+  $thepostid = intval($atts[id]);
+  $output = '';
+
+  query_posts('p='.$thepostid.'&post_type=code');
+  if (have_posts()) : while (have_posts()) : the_post();
+  $code_language = get_post_meta($post->ID, "clark_code_language", true);
+    $output .= get_the_content($post->ID);
+  endwhile; else:
+    return "fail!";
+  endif;
+  wp_reset_query();
+if ($code_language = "php"){
+  return '<pre name="code" class="php">&lt;?php '.$output.' ?&gt;</pre>';
+}
+
+}
+
+add_shortcode("code", "include_code");
 
 /**
  * Register widgetized area and update sidebar with default widgets

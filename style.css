@@ -556,3 +556,5 @@ object {
 .entry-title a{text-decoration:none; color:#000;}
 
 #masthead{border-right:1px solid #ccc;}
+
+#nav-above{display:none} /* for now */
