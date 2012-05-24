@@ -557,3 +557,8 @@ object {
 
 #nav-above{display:none} /* for now */
 
+#reader{margin:0; padding:0; list-style:none; display:none;}
+
+.menu-toggle{position:absolute; top:8px; right:30px;}
+
+h1 a{text-decoration:none;}

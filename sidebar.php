@@ -8,6 +8,18 @@
 ?>
 		<div id="secondary" class="widget-area" role="complementary">
 			<?php do_action( 'before_sidebar' ); ?>
+            
+            <?php if (is_single()) : ?>
+            <ul id="reader">
+			<?php $reader = new WP_Query('posts_per_page=5'); ?>
+                <?php while ($reader->have_posts()) : $reader->the_post(); ?>	
+            
+                <li><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+            
+            <?php endwhile; ?>
+            </ul>
+            <?php endif; ?>
+            
 			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 				<aside id="search" class="widget widget_search">
