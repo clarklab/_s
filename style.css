@@ -308,12 +308,15 @@ textarea {
 /* Links */
 a {
 	color:#4FACB2;
+	text-decoration:none;
 }
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #F36C20;
 }
+
+.entry-content a{font-weight:800;}
 
 /* Alignment */
 .alignleft {
@@ -583,6 +586,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 /* = custom stuffs
 ----------------------------------------------- */
 
+.comments-title{font-family:"Prata"; font-size:28px; font-weight:400 !important; margin:60px 0 30px; line-height:38px;}
+
+.commentlist{list-style:none; margin:0; padding:0;}
+.commentlist cite{font-weight:800; font-style:normal;}
+.commentlist li{position:relative;}
+.commentlist li .avatar{float:left; position:relative; top:3px; margin:0 20px 10px 0;}
+.comment-meta, .comment-meta a{color:#aaa;}
+.commentlist ul{list-style:none;}
 
 .entry-title{font-family:"Prata"; font-size:48px; font-weight:400 !important; margin:90px 0 30px; line-height:54px;}
 .entry-title a{text-decoration:none; color:#000;}
@@ -606,3 +617,5 @@ h1 a{text-decoration:none;}
 #masthead h1 a{font-size:20px; margin:0; display:inline-block; padding:10px 0; line-height:25px;}
 
 .entry-title{font-size:38px; margin:90px 0 30px; line-height:46px;}
+}
+
