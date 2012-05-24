@@ -36,6 +36,14 @@ function _s_setup() {
 	 */
 	
 	require( get_template_directory() . '/inc/post-types.php');
+	
+	/**
+	 * Custom metaboxes
+	 */
+	
+	
+	
+	include( get_template_directory() . '/inc/metabox/metaboxes.php');
 
 	/**
 	 * Custom functions that act independently of the theme templates
