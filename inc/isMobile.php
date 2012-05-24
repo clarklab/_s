@@ -40,11 +40,4 @@ function isMobile() {
 	// None of the above? Then it's probably not a mobile device.
 	return false;
 }
-
-
-if (isMobile()) {
-	
-	echo "mobile";
-}
-	echo "web";
 ?>
