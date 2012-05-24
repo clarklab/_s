@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h1>
 
 		<div class="entry-meta">
 			<?php _s_posted_on(); ?>
@@ -23,6 +23,20 @@
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', '_s' ), 'after' => '</div>' ) ); ?>
         <?php endif; ?>
+        
+        <?php $attachments = get_post_meta($post->ID, '_cmb_attachments', true); if ($attachments) : ?>
+        <?php $files = get_attachments();
+
+			  if ($files) {
+				  echo '<ul id="attachments"><p>This post has some files attached, which you can download below:</p>';
+				  foreach ($files as $file) {
+					  echo "$file";
+				  }
+				   echo '</ul>';
+			  }
+		?>
+        <?php endif; ?>
+        
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
