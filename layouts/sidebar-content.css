@@ -69,17 +69,32 @@ Layout: Sidebar-Content
 #masthead{
 	top:0;
 	width: 100%;
-	padding:10px 30px;
-	height:40px;
+	padding:0;
+	height:auto;
 	border:none;
-	border-bottom:1px solid #ccc;
 	background:#fff;
 	}
-
+	
+	#header-group{
+		top:0;
+		width: 100%;
+		padding:0 30px;
+		height:45px;
+		border-bottom:1px solid #ccc;
+		
+		}
+		
+	#header-group:after{
+		clear:both;
+		content:".";
+		height:0;
+		visibility:hidden;
+	}
+	
 .site-footer {
 	padding-left:0;
 }
   
-  #secondary{display:none;}
+  #secondary{display:none; padding:30px; border-bottom:1px solid #ccc;}
   
 }

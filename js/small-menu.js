@@ -10,13 +10,13 @@ jQuery( document ).ready( function( $ ) {
 		$masthead.find( '.site-navigation h1' ).removeClass( 'assistive-text' ).addClass( 'menu-toggle' );
 
 		$( '.menu-toggle' ).unbind( 'click' ).click( function() {
-			$masthead.find( '.menu' ).toggle();
+			$masthead.find( '#secondary' ).toggle();
 			$( this ).toggleClass( 'toggled-on' );
 		} );
 	};
 
 	// Check viewport width on first load.
-	if ( $( window ).width() < 600 )
+	if ( $( window ).width() < 500 )
 		$.fn.smallMenu();
 
 	// Check viewport width when user resizes the browser window.
@@ -27,7 +27,7 @@ jQuery( document ).ready( function( $ ) {
 			clearTimeout( timeout );
 
 		timeout = setTimeout( function() {
-			if ( browserWidth < 600 ) {
+			if ( browserWidth < 500 ) {
 				$.fn.smallMenu();
 			} else {
 				$masthead.find( '.site-navigation' ).removeClass( 'main-small-navigation' ).addClass( 'main-navigation' );

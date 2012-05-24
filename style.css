@@ -550,15 +550,59 @@ object {
 	display: none;
 }
 
+/* =[site] shortcode
+----------------------------------------------- */
+
+.site-window{border:1px solid #cfcfcf; position:relative; box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.1); padding:20px 0 0 0; display:inline-block; line-height:normal; overflow:hidden; border-radius: 5px 5px 0px 0px; width:310px; height:230px; display:block;}
+.site-window img{position:relative; left:-4px; top:0px;}
+.site-window .title{font-size:11px; text-align:center; display:block; position:absolute; top:5px; z-index:1000; font-weight:bold; text-shadow:1px 1px 0 #fff; width:100%;}
+.site-window:before{content:""; border-radius: 5px 5px 0px 0px; display:block; height:25px; z-index:100; position:absolute; border-bottom:0; width:100%; left:-1px; top:0; padding:0 1px 0 0; background: #f8f8f8; /* Old browsers */
+background: -moz-linear-gradient(top, #f8f8f8 0%, #d0d0d0 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#d0d0d0)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f8f8f8 0%,#d0d0d0 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f8f8f8 0%,#d0d0d0 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f8f8f8 0%,#d0d0d0 100%); /* IE10+ */
+background: linear-gradient(top, #f8f8f8 0%,#d0d0d0 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#d0d0d0',GradientType=0 ); /* IE6-9 */}
+.site-window a.mine{content:""; display:block; position:absolute; top:-10px; left:-10px; width:130%; height:130%; z-index:1001;}
+
+/* = syntax highlighter tweaks
+----------------------------------------------- */
+
+.dp-highlighter {border:1px solid #cfcfcf; box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.1); font-size:16px !important; background-color:#F4F4F4 !important;}
+#main .dp-highlighter ol li{padding:4px 0 4px 8px !important;}
+#main .dp-highlighter ol li:first-child{padding-top:10px !important;}
+#main .dp-highlighter ol li:last-child{padding-bottom:10px !important;}
+
+/* = poll fixes
+----------------------------------------------- */
+
+.wp-polls-ul li{margin:0 0 20px 0; padding:0; font-weight:bold;}
+.wp-polls-ul li input[type="checkbox"]{position:relative; top:-3px; margin:0 5px 0 0;}
+
+/* = custom stuffs
+----------------------------------------------- */
+
+
 .entry-title{font-family:"Prata"; font-size:48px; font-weight:400 !important; margin:90px 0 30px; line-height:54px;}
 .entry-title a{text-decoration:none; color:#000;}
 
 #masthead{border-right:1px solid #ccc;}
+#masthead h1 a{font-weight:800; font-size:24px; display:inline-block; margin:0 0 15px 0;}
 
 #nav-above{display:none} /* for now */
 
 #reader{margin:0; padding:0; list-style:none; display:none;}
 
-.menu-toggle{position:absolute; top:8px; right:30px;}
+.main-small-navigation{float:right;}
+.main-small-navigation .menu-toggle{ display:inline-block; padding:10px 0; line-height:25px; }
 
 h1 a{text-decoration:none;}
+
+.wpengine-promo{display:none !important} /* Only because I display it elsewhere!! Always show WPE some love! */
+
+@media screen and (max-width: 500px) {
+#masthead h1{float:left;}
+#masthead h1 a{font-size:20px; margin:0; display:inline-block; padding:10px 0; line-height:25px;}
+
+.entry-title{font-size:38px; margin:90px 0 30px; line-height:46px;}

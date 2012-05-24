@@ -141,7 +141,7 @@ extract( shortcode_atts( array(
     $image_tag = '<img class="ss_screenshot_img" alt="' . $url . '" width="' . $width . '" src="' . $query_url . '" />';  
 	$widthedge = ($width-8);
 	$heightedge = ($height-10);
-	echo '<div class="site align'.$align.'" style="width:'.$widthedge.'px; height:'.$heightedge.'px;"><a href="'.$url.'"><span class="title">'.$title.'</span>' . $image_tag . '</a></div>'; 
+	echo '<div class="site-window align'.$align.'" style="width:'.$widthedge.'px; height:'.$heightedge.'px;"><a href="'.$url.'"><span class="title">'.$title.'</span>' . $image_tag . '</a></div>'; 
   
   }else{  
   
@@ -200,7 +200,7 @@ function _s_scripts() {
 	
 	wp_enqueue_style( 'font-prata', 'http://fonts.googleapis.com/css?family=Prata' );
 	
-	wp_enqueue_style( 'font-open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans' );
+	wp_enqueue_style( 'font-open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,800' );
 
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 	
