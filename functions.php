@@ -41,9 +41,13 @@ function _s_setup() {
 	 * Custom metaboxes
 	 */
 	
-	
-	
 	include( get_template_directory() . '/inc/metabox/metaboxes.php');
+	
+	/**
+	 * Custom isMobile
+	 */
+	
+	require( get_template_directory() . '/inc/isMobile.php');
 
 	/**
 	 * Custom functions that act independently of the theme templates

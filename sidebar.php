@@ -9,7 +9,7 @@
 		<div id="secondary" class="widget-area" role="complementary">
 			<?php do_action( 'before_sidebar' ); ?>
             
-            <?php if (is_single()) : ?>
+            <?php if (is_single() and isMobile()) : ?>
             <ul id="reader">
 			<?php $reader = new WP_Query('posts_per_page=5'); ?>
                 <?php while ($reader->have_posts()) : $reader->the_post(); ?>	
