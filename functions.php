@@ -57,7 +57,7 @@ function _s_setup() {
 	/**
 	 * Custom Theme Options
 	 */
-	//require( get_template_directory() . '/inc/theme-options/theme-options.php' );
+	require( get_template_directory() . '/inc/theme-options/theme-options.php' );
 
 	/**
 	 * WordPress.com-specific functions and definitions
@@ -217,6 +217,9 @@ function _s_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 	
 	wp_enqueue_style( 'sidebar-content', get_template_directory_uri() . '/layouts/sidebar-content.css' );
+	
+	$options = _s_get_theme_options(); if ($options['twitter_api_key']) {
+	wp_enqueue_script( 'twitter-anywhere', 'http://platform.twitter.com/anywhere.js?id='.$options['twitter_api_key'], '', '1', false ); }
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 

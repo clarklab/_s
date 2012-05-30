@@ -41,7 +41,7 @@ function _s_theme_options_init() {
 		'general' // Settings section. Same as the first argument in the add_settings_section() above
 	);
 
-	add_settings_field( 'sample_text_input', __( 'Sample Text Input', '_s' ), '_s_settings_field_sample_text_input', 'theme_options', 'general' );
+	add_settings_field( 'twitter_api_key', __( 'Twitter @Anywhere Key', '_s' ), '_s_settings_field_twitter_api_key', 'theme_options', 'general' );
 	add_settings_field( 'sample_select_options', __( 'Sample Select Options', '_s' ), '_s_settings_field_sample_select_options', 'theme_options', 'general' );
 	add_settings_field( 'sample_radio_buttons', __( 'Sample Radio Buttons', '_s' ), '_s_settings_field_sample_radio_buttons', 'theme_options', 'general' );
 	add_settings_field( 'sample_textarea', __( 'Sample Textarea', '_s' ), '_s_settings_field_sample_textarea', 'theme_options', 'general' );
@@ -149,7 +149,7 @@ function _s_get_theme_options() {
 	$saved = (array) get_option( '_s_theme_options' );
 	$defaults = array(
 		'sample_checkbox'       => 'off',
-		'sample_text_input'     => '',
+		'twitter_api_key'     => '',
 		'sample_select_options' => '',
 		'sample_radio_buttons'  => '',
 		'sample_textarea'       => '',
@@ -179,11 +179,11 @@ function _s_settings_field_sample_checkbox() {
 /**
  * Renders the sample text input setting field.
  */
-function _s_settings_field_sample_text_input() {
+function _s_settings_field_twitter_api_key() {
 	$options = _s_get_theme_options();
 	?>
-	<input type="text" name="_s_theme_options[sample_text_input]" id="sample-text-input" value="<?php echo esc_attr( $options['sample_text_input'] ); ?>" />
-	<label class="description" for="sample-text-input"><?php _e( 'Sample text input', '_s' ); ?></label>
+	<input type="text" name="_s_theme_options[twitter_api_key]" id="twitter_api_key" value="<?php echo esc_attr( $options['twitter_api_key'] ); ?>" />
+	<label class="description" for="twitter_api_key"><?php _e( 'Twitter @Anywhere API Key', '_s' ); ?></label>
 	<?php
 }
 
@@ -286,8 +286,8 @@ function _s_theme_options_validate( $input ) {
 		$output['sample_checkbox'] = 'on';
 
 	// The sample text input must be safe text with no HTML tags
-	if ( isset( $input['sample_text_input'] ) && ! empty( $input['sample_text_input'] ) )
-		$output['sample_text_input'] = wp_filter_nohtml_kses( $input['sample_text_input'] );
+	if ( isset( $input['twitter_api_key'] ) && ! empty( $input['twitter_api_key'] ) )
+		$output['twitter_api_key'] = wp_filter_nohtml_kses( $input['twitter_api_key'] );
 
 	// The sample select option must actually be in the array of select options
 	if ( isset( $input['sample_select_options'] ) && array_key_exists( $input['sample_select_options'], _s_sample_select_options() ) )
