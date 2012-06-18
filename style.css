@@ -106,7 +106,10 @@ textarea {
 /* Headings */
 h1,h2,h3,h4,h5,h6 {
 	clear: both;
+	
 }
+article h2{font-size:34px; font-family:"Prata"; margin-bottom:20px;}
+article h3{font-size:24px; font-weight:800;  margin-bottom:20px;}
 hr {
 	background-color: #ccc;
 	border: 0;
@@ -486,7 +489,7 @@ img.size-full {
 	margin: 1.2% auto 0;
 	max-width: 98%;
 }
-.wp-caption-text {
+.wp-caption-text, .center-text {
 	text-align: center;
 }
 .wp-caption .wp-caption-text {
@@ -609,6 +612,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 .main-small-navigation .menu-toggle{ display:inline-block; padding:10px 0; line-height:25px; }
 
 h1 a{text-decoration:none;}
+
+.wide-input{width:100%;}
+.page-download .site-footer{display:none;}
+.hidden{border: 0 none; height: 0; width: 0; padding: 0; margin: 0; overflow: hidden;}
+
+#respond{margin-bottom:50px;}
+
+.fineprint{color:#888; font-size:80%;}
 
 .wpengine-promo{display:none !important} /* Only because I display it elsewhere!! Always show WPE some love! */
 

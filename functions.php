@@ -220,6 +220,8 @@ function _s_scripts() {
 	
 	$options = _s_get_theme_options(); if ($options['twitter_api_key']) {
 	wp_enqueue_script( 'twitter-anywhere', 'http://platform.twitter.com/anywhere.js?id='.$options['twitter_api_key'], '', '1', false ); }
+	
+	wp_enqueue_script( 'placeholder', get_template_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', false );
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 
@@ -237,3 +239,17 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * Implement the Custom Header feature
  */
 //require( get_template_directory() . '/inc/custom-header.php' );
+
+function meta_valuables_download() {
+	return '<div class="file_download"><a href="'.get_option('meta_valuables_pdf_location').'" target="_parent" style="display:block; background:url(http://clarklab.com/wp-content/uploads/2012/06/icon_pdf.png) no-repeat; height:26px; line-height:26px; text-decoration:none; padding:0 0 0 35px;font-weight:800; margin:10px 0 20px 0; color:#000;">Download PDF (427KB)</a><a href="'.get_option('meta_valuables_txt_location').'" target="_parent" style="display:block; background:url(http://clarklab.com/wp-content/uploads/2012/06/icon_txt.png) no-repeat; height:26px; line-height:26px; text-decoration:none; padding:0 0 0 35px; font-weight:800; margin:10px 0 20px 0; color:#888;">Download TXT (37KB)</a><p style="font-size:10px; color:#888; border-bottom:1px solid #ccc; padding-bottom:15px; margin-bottom:15px;">There\'s no DRM in these files, so enjoy and share within reason, just don\'t be a dick.</p></div><div class="tweetbox"><div id="tbox"></div><script type="text/javascript">twttr.anywhere(function (T) {T("#tbox").tweetBox({height: 100, width: 300, defaultContent: "Just bought Meta Valuables, a #WordPress development ebook by @clarklab http://clarklab.com/book", label: "Spare a tweet?" }); });</script></div>';
+}
+
+function add_body_class( $classes )
+{
+    global $post;
+    if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'add_body_class' );

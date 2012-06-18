@@ -33,6 +33,8 @@ jQuery( document ).ready( function( $ ) {
 				$masthead.find( '.site-navigation' ).removeClass( 'main-small-navigation' ).addClass( 'main-navigation' );
 				$masthead.find( '.site-navigation h1' ).removeClass( 'menu-toggle' ).addClass( 'assistive-text' );
 				$masthead.find( '.menu' ).removeAttr( 'style' );
+				$masthead.find( '#secondary' ).show();
+				$( '.menu-toggle' ).removeClass( 'toggled-on' );
 			}
 		}, 200 );
 	} );
